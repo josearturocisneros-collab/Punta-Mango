@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Punta Mango Resort — Home</title>
+  <link rel="stylesheet" href="extension.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="banner">
+      <div class="banner-overlay">
+        <h1 class="site-title">Punta Mango Resort</h1>
+        <p class="site-subtitle">by Jose Cisneros — Coastal Cabins • Café • Surf & Bike Rentals</p>
+      </div>
+    </div>
+
+   <!-- Navigation -->
+     <nav class="main-nav" role="navigation" aria-label="Main site navigation">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <ul class="nav-list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="Amenities.html" class="active">Amenities</a></li>
+        <li><a href="about" class="active">About</a></li>
+        <li><a href="Cabins.html" class="active">Cabins</a></li>
+        <li><a href="Contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="intro container">
+      <h2>Welcome to Punta Mango Resort</h2>
+      <p>
+        Experience the untouched beauty of El Salvador’s coast at Punta Mango Resort. Nestled between the ocean and lush tropical hills, our cabins offer peace, adventure, and authentic local charm.
+      </p>
+      <a class="cta" href="Amenities.html">Explore Our Amenities</a>
+    </section>
+
+    <section class="featured container">
+      <h2>Discover Paradise</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="images/BeachCabins.jpg" alt="Ocean-view cabins">
+          <h3>Ocean-View Cabins</h3>
+          <p>Wake up to the sound of waves and panoramic sea views in our eco-friendly cabins.</p>
+        </article>
+
+        <article class="card">
+          <img src="images/puntacafe.jpg" alt="Beachside café">
+          <h3>Punta Café</h3>
+          <p>Enjoy fresh coffee, tropical fruit bowls, and handmade pastries steps from the beach.</p>
+        </article>
+
+        <article class="card">
+          <img src="images/surflessons.jpg" alt="Surfboard rentals and surf lessons">
+          <h3>Surf & Bike Rentals</h3>
+          <p>Explore the coastline your way — rent a surfboard or mountain bike and ride the waves or trails.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="visit" class="container visit">
+      <h2>Plan Your Visit</h2>
+      <p>Open year-round • Playa Punta Mango, El Salvador • Tel: (503) 555-0110</p>
+      <a class="cta" href="Contact.html">Contact & Reservations</a>
+    </section>
+  </main>
+
+  <footer id="Contact" class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Punta Mango Resort — Website by Jose Cisneros</p>
+      <p>Email: josecisneros@puntamangoresort.example</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

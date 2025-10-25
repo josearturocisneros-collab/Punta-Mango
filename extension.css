@@ -1,0 +1,278 @@
+/* -----------------------------
+   Reset & Base
+------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #222222;
+  line-height: 1.6;
+  background-color: #fdfdfd;
+}
+.container {
+  width: min(1100px, 94%);
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* -----------------------------
+   Banner & Overlay
+------------------------------ */
+.banner {
+  background-image: url('images/BeachCabins.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.banner-overlay {
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 4px;
+}
+.site-title {
+  font-size: 2.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.site-subtitle {
+  font-size: 1rem;
+  margin-top: .4rem;
+  opacity: 0.9;
+}
+.small-banner .banner {
+  min-height: 160px;
+}
+
+/* -----------------------------
+   Navigation
+------------------------------ */
+.main-nav {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0.8rem 1rem;
+  gap: 1rem;
+}
+.nav-list a {
+  color: #004e64;
+  text-decoration: none;
+  padding: .5rem .9rem;
+  border-radius: 5px;
+  transition: background-color .2s ease;
+}
+.nav-list a:hover {
+  background-color: rgba(0,78,100,0.08);
+}
+.nav-list a.active {
+  background-color: rgba(0,78,100,0.15);
+}
+.nav-toggle, .nav-toggle-label {
+  display: none;
+}
+
+/* -----------------------------
+   Buttons
+------------------------------ */
+.cta, .secondary {
+  display: inline-block;
+  text-decoration: none;
+  padding: .7rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background .2s ease;
+}
+.cta {
+  background-color: #007c91;
+  color: #fff;
+}
+.cta:hover { background-color: #005f6b; }
+.secondary {
+  background: transparent;
+  border: 1px solid #007c91;
+  color: #007c91;
+}
+.secondary:hover { background-color: #007c91; color: #fff; }
+
+/* -----------------------------
+   Cards & Grid Layouts
+------------------------------ */
+.cards {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.card {
+  background: #fff;
+  flex: 1 1 calc(33% - 1rem);
+  min-width: 240px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  padding: 1rem;
+  text-align: center;
+}
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: .7rem;
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+.menu-items {
+  list-style: none;
+  margin-top: .8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.menu-items li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.menu-items img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* -----------------------------
+   Pricing Table
+------------------------------ */
+.pricing-responsive { overflow-x: auto; margin-top: 1.5rem; }
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  min-width: 600px;
+}
+.pricing-table th {
+  text-align: left;
+  padding: 0.8rem;
+  background: #e6f4f1;
+}
+.pricing-table td { padding: 0.8rem; border: none; }
+.pricing-table tr:nth-child(even) { background: #f9f9f9; }
+
+/* -----------------------------
+   Footer
+------------------------------ */
+.site-footer {
+  background: #004e64;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+}
+.site-footer p { font-size: 0.9rem; }
+
+/* -----------------------------
+   Contact Page
+------------------------------ */
+.contact-page .banner {
+  min-height: 180px;
+}
+.contact-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(0, 78, 100, 0.75);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  color: #fff;
+  text-align: left;
+}
+.contact-form h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00bcd4;
+}
+.contact-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+  box-shadow: 0 0 8px #00bcd4;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.contact-form input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: #00bcd4;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+.contact-form input[type="submit"]:hover {
+  background-color: #0097a7;
+}
+
+/* -----------------------------
+   Responsive
+------------------------------ */
+@media (max-width: 900px) {
+  .cards { flex-direction: column; }
+  .menu-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 20px;
+    margin: 30px 15px;
+  }
+  .contact-form h2 { font-size: 1.8rem; }
+}
+@media (max-width: 700px) {
+  .nav-toggle { display: block; }
+  .nav-toggle-label {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: .7rem;
+    cursor: pointer;
+  }
+  .nav-list { display: none; flex-direction: column; }
+  .nav-toggle:checked + .nav-toggle-label + .nav-list { display: flex; }
+}
