@@ -35,15 +35,85 @@
   <main>
     <section class="container contact-form">
       <h2>Send Us a Message</h2>
-      <form>
+
+     <!--HTML5 validated contact form. This part is NEWLY Updated--> 
+      <form action="#" method="post">
+
+        <!--Name-->
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        placeholder="Your Name" 
+        minlength="2"
+        required>
 
+        <!--Phone-->
+        <label for="phone"> Phone Number</label>
+        <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="Phone Number"
+        pattern="Number"
+        minlength="2"
+        required>
+
+        <!--Email-->
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <input type="email" 
+        id="email" 
+        name="email" 
+        placeholder="Your Email" 
+        required>
+        
+        <!--Number of nights-->
+        <label for="nights"> Number of Guests</label>
+        <input
+        type="number"
+        id="Guests"
+        name="Guests"
+        min="1"
+        max="100"
+        value="1"
+        required>
+        
+        <!--Arrival Date-->
+        <label for="arrival">Arrival Date:</label>
+        <input
+        type="date"
+        id="arrival"
+        name="arrival"
+        required>
 
+        <!--Departure Date-->
+        <label for="departure">Departure Date:</label>
+        <input
+        type="date"
+        id="departure"
+        name="departure"
+        required>
+
+        <!-- Messaeg box-->
         <label for="message">Message:</label>
-        <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
+        <textarea id="message" 
+        name="message" 
+        placeholder="Your Message" 
+        rows="6" required>
+      </textarea>
+
+        
+        <fieldset>
+          <legend> Preferred Contact Method</legend>
+        <label>
+            <input type="radio" name="contactmethod" value="email" checked>
+            Email
+          </label>
+          <label>
+              <input type="radio" name="contactmethod" value="phone"> Phone
+          </label>
+        </fieldset>
 
         <input type="submit" value="Send" class="btn" aria-label="Send message">
       </form>
