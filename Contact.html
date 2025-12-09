@@ -37,86 +37,118 @@
       <h2>Send Us a Message</h2>
 
      <!--HTML5 validated contact form. This part is NEWLY Updated--> 
-      <form action="#" method="post">
+<form id="contactForm" action="#" method="post">
 
-        <!--Name-->
-        <label for="name">Name:</label>
-        <input 
-        type="text" 
-        id="name" 
-        name="name" 
-        placeholder="Your Name" 
-        minlength="2"
-        required>
+  <!-- First Name -->
+  <label for="firstName">First Name:</label>
+  <input 
+    type="text" 
+    id="firstName"  
+    name="firstName" 
+    placeholder="First Name" 
+    minlength="2"
+    required>
 
-        <!--Phone-->
-        <label for="phone"> Phone Number</label>
-        <input
-        type="tel"
-        id="phone"
-        name="phone"
-        placeholder="Phone Number"
-        pattern="Number"
-        minlength="2"
-        required>
+  <!-- Last Name -->
+  <label for="lastName">Last Name:</label>
+  <input 
+    type="text" 
+    id="lastName"  
+    name="lastName" 
+    placeholder="Last Name" 
+    minlength="2"
+    required>
 
-        <!--Email-->
-        <label for="email">Email:</label>
-        <input type="email" 
-        id="email" 
-        name="email" 
-        placeholder="Your Email" 
-        required>
-        
-        <!--Number of nights-->
-        <label for="nights"> Number of Guests</label>
-        <input
-        type="number"
-        id="Guests"
-        name="Guests"
-        min="1"
-        max="100"
-        value="1"
-        required>
-        
-        <!--Arrival Date-->
-        <label for="arrival">Arrival Date:</label>
-        <input
-        type="date"
-        id="arrival"
-        name="arrival"
-        required>
+  <!-- City -->
+  <label for="city">City:</label>
+  <input 
+    type="text" 
+    id="city"  
+    name="city" 
+    placeholder="City" 
+    minlength="2"
+    required>
 
-        <!--Departure Date-->
-        <label for="departure">Departure Date:</label>
-        <input
-        type="date"
-        id="departure"
-        name="departure"
-        required>
+  <!-- ZIP Code -->
+  <label for="zip">ZIP Code:</label>
+  <input
+    type="text"
+    id="zip"
+    name="zip"
+    placeholder="12345"
+    required>
 
-        <!-- Messaeg box-->
-        <label for="message">Message:</label>
-        <textarea id="message" 
-        name="message" 
-        placeholder="Your Message" 
-        rows="6" required>
-      </textarea>
+  <!-- Phone -->
+  <label for="phone">Phone Number:</label>
+  <input
+    type="tel"
+    id="phone"
+    name="phone"
+    placeholder="(123) 123-4567"
+    minlength="7"
+    required>
 
-        
-        <fieldset>
-          <legend> Preferred Contact Method</legend>
-        <label>
-            <input type="radio" name="contactmethod" value="email" checked>
-            Email
-          </label>
-          <label>
-              <input type="radio" name="contactmethod" value="phone"> Phone
-          </label>
-        </fieldset>
+  <!-- Email -->
+  <label for="email">Email:</label>
+  <input 
+    type="email" 
+    id="email" 
+    name="email" 
+    placeholder="@example.com" 
+    required>
 
-        <input type="submit" value="Send" class="btn" aria-label="Send message">
-      </form>
+  <!-- Number of Guests -->
+  <label for="guests">Number of Guests:</label>
+  <input
+    type="number"
+    id="guests"
+    name="guests"
+    min="1"
+    max="100"
+    value="1"
+    required>
+  
+  <!-- Arrival Date -->
+  <label for="arrival">Arrival Date:</label>
+  <input
+    type="date"
+    id="arrival"
+    name="arrival"
+    required>
+
+  <!-- Departure Date -->
+  <label for="departure">Departure Date:</label>
+  <input
+    type="date"
+    id="departure"
+    name="departure"
+    required>
+
+  <!-- Message box -->
+  <label for="message">Message:</label>
+  <textarea 
+    id="message" 
+    name="message" 
+    placeholder="Your Message" 
+    rows="6" 
+    required></textarea>
+
+  <!-- Preferred Contact Method -->
+  <fieldset>
+    <legend>Preferred Contact Method</legend>
+    <label>
+      <input type="radio" name="contactmethod" value="email" checked>
+      Email
+    </label>
+    <label>
+      <input type="radio" name="contactmethod" value="phone">
+      Phone
+    </label>
+  </fieldset>
+
+  <input type="submit" value="Send" class="btn" aria-label="Send message">
+</form>
+
     </section>
   </main>
 
@@ -127,10 +159,49 @@
     </div>
   </footer>
 
-  <!-- JavaScript to update year -->
+  <!-- JavaScript-->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  // keept this from out previous assignment 
+  document.getElementById("year").textContent = new Date().getFullYear();
+  // All this information was gathered from w3schools.com and confirmed with Chat and the few information i was able to gather on Chapter 14.
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+  
+    let first = document.getElementById("firstName");
+    let last  = document.getElementById("lastName");
+    let city  = document.getElementById("city");
+    let email = document.getElementById("email");
+    let zip   = document.getElementById("zip");
+
+    // Capitalize helper
+    function cap(v) {
+      v = v.trim();
+      if (v === "") return "";
+      return v.charAt(0).toUpperCase() + v.slice(1).toLowerCase();
+    }
+
+    // Apply capitalization
+    first.value = cap(first.value);
+    last.value  = cap(last.value);
+    city.value  = cap(city.value);
+
+    // Very simple email + ZIP validation
+    let emailOK = email.value.includes("@") && email.value.includes(".");
+    let zipValue = zip.value.trim();
+    let zipOK   = zipValue.length === 5 && !isNaN(zipValue); // 5 numbers is what i wanted but i was not able to get it to generate an error with less or more then the required digits.
+
+    if (!emailOK || !zipOK) {
+      e.preventDefault(); // Stop form submission
+
+      let msg = "";
+      if (!emailOK) msg += "Please enter a valid email.\n";
+      if (!zipOK) msg += "Please enter a 5-digit ZIP code.";
+
+      alert(msg);
+    }
+  });
+</script>
 
 </body>
 </html>
+
+
